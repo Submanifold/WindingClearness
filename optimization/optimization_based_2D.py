@@ -1,19 +1,8 @@
-import torch.multiprocessing as mp
-import torch.nn as nn
 import torch.optim as optim
 import torch.utils.data
-import trimesh
 import argparse
-from torch.distributions import Normal
-
-from utils.file_utils import *
 from utils.visualize import *
-import torch.distributed as dist
 from datasets.test_data_pc import PointCloud
-from torch.nn import functional as F
-from torchvision.utils import save_image
-#from pytorch3d.ops import knn_points
-#from pytorch3d.ops import knn_gather
 torch.set_default_dtype(torch.float32)
 from torch.autograd import Variable
 
@@ -165,9 +154,9 @@ def train(opt):
 
         loss_history_file_path = f"./output/{opt.result_label}/{file_name}_loss.txt"
 
-        # 训练循环外部，确保文件是空的或不存在
+
         with open(loss_history_file_path, 'w') as f:
-            f.write('')  # 清空文件内容
+            f.write('')
 
 
         for epoch in range(start_epoch, opt.niter):

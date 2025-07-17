@@ -11,8 +11,6 @@ from utils.visualize import *
 from model.pvcnn_generation import PVCNN2Base
 import torch.distributed as dist
 from datasets.shapenet_data_pc import ShapeNet15kPointClouds
-#from pytorch3d.ops import knn_points
-#from pytorch3d.ops import knn_gather
 torch.set_default_dtype(torch.float32)
 '''
 some utils
