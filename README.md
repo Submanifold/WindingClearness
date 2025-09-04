@@ -1,7 +1,7 @@
 # Winding Clearness for Differentiable Point Cloud Optimization
 
 ## Introduction
-This document contains the source code for our TVCG submission titled “Winding Clearness for Differentiable Point Cloud Optimization”.
+This document contains the source code for our work “Winding Clearness for Differentiable Point Cloud Optimization”.
 
 - The `./optimization` folder includes the code for single point cloud optimization proposed in Section 5.1.
 - The `./learning` folder includes the code for incorporating winding clearness as a geometric constraint in the standard DDPM proposed in Section 5.2.
@@ -39,8 +39,9 @@ Execute the following commands to run the single point cloud optimization method
 python optimization_based_2D.py --dataroot ./input/2D --result_label 2D
 python optimization_based_3D.py --dataroot ./input/3D --result_label 3D 
 python optimization_based_3D.py --dataroot ./input/3D2 --result_label 3D2 --lambda_k 20.0
+python optimization_based_3D_multi_batch.py --dataroot ./input/3D_multi_batch --result_label 3D_multi_batch
 ```
-Results will be stored in the "output" folder.
+The last row of the command can run the multi-batch method stated in Section 7, where the point cloud contains 50K points. Results will be stored in the "output" folder.
 
 ## Diffusion-based Method
 The baseline of the diffusion-based method is [PVD](https://alexzhou907.github.io/pvd).
@@ -63,4 +64,19 @@ The joint training strategy of our method can be executed by:
 
 ```bash
 python train_generation_joint_chair.py
+```
+
+## Citation
+```bash
+@article{XIAO2025103930,
+title = {Winding clearness for differentiable point cloud optimization},
+journal = {Computer-Aided Design},
+volume = {188},
+pages = {103930},
+year = {2025},
+issn = {0010-4485},
+doi = {https://doi.org/10.1016/j.cad.2025.103930},
+url = {https://www.sciencedirect.com/science/article/pii/S0010448525000910},
+author = {Dong Xiao and Yueji Ma and Zuoqiang Shi and Shiqing Xin and Wenping Wang and Bailin Deng and Bin Wang},
+}
 ```
